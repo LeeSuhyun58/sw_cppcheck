@@ -12,7 +12,7 @@ void main(int argc, char* argv[], char* envp[]){
     v[1] = NULL;
     newenv[0] = "AAA=aaa";
     newenv[1] = "BBB=bbb";
-    newenv[1] = NULL;
+    newenv[2] = NULL;
     switch(argv[1][0]){
         case '2':
             execve(v[0], v, newenv);
