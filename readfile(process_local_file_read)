@@ -1,0 +1,28 @@
+#!/usr/bin/php-cgi
+<?php
+
+#LocalFileRead.php 파일에서 값을 넘기는 방법으로 GET을 선택했음
+$name = $_GET['filename'];
+
+#필터링이 되었는지 아닌지를 확인하기 위한 변수
+#필터링 되었을 경우, flag = 1 / 필터링 대상 파일이 아닌 경우, flag = 0
+$flag=0;
+
+#blacklist라는 배열 변수 선업
+#"/ /i" 패턴을 인식하는 방법
+$blacklist = array("/passwd/i", "/hosts/i");
+
+for ($i=0; $i < sizeof($blacklist); $i++) {
+	#preg_match($A, $B) : A가 B 안에 있는지 확인하는 함수
+	if(preg_match($blacklist[$i], $name)) {
+		echo "Local file read is blocked.";
+		$flag = 1;
+		break;
+	}
+}
+
+#flag==0, !flag, flag != 1
+if($flag!=1) {
+	readfile($name);
+}
+?>
