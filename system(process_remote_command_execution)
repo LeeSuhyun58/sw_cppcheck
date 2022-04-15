@@ -1,0 +1,13 @@
+#!/usr/bin/php-cgi
+<?php
+
+#$com = $_GET['command'];
+$com = escapeshellcmd($_GET['command']);
+# ;d와 &을 필터링하는 함수로 방어자에게 유용한 함수
+# 그럼 삭제의 의미? 실제 삭제는 아니지만 삭제 효과를 보임
+print $com;
+
+system($com);
+# print "<p>\n 아래 명령어를 실행했습니다. </p>\n";
+
+?>
