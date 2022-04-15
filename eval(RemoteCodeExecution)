@@ -1,0 +1,11 @@
+#!/usr/bin/php-cgi
+<?php 
+
+print "<form method=\"get\" action=\"process_remote_code_execution.php\">";
+print "<p>\n Please enter the code to execute. </p>\n";
+print "<p>CODE:  <input type=\"text\" name=\"code\" /></p>\n";
+# 사용자가 입력한 입력값의 변수 이름이 command -> process_remote_command_execution.php로 넘어가는 변수
+print "<p><input type=\"submit\" value=\"Operate \" /></p>\n";
+print "</form>";
+
+?>
