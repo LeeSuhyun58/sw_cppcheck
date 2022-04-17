@@ -1,4 +1,5 @@
 #!/usr/bin/php-cgi
+# php 시작 코드
 <?php
 
 #$com = $_GET['command'];
